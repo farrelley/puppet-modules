@@ -1,0 +1,33 @@
+# ***************************************************
+# Development vhost template
+# ***************************************************
+
+#Listen <%= port %>
+#NameVirtualHost <%= vhost_name %>:<%= port %>
+<VirtualHost <%= vhost_name %>:<%= port %>>
+    ServerName <%= srvname %>
+    <% if serveraliases.is_a? Array -%>
+        <% serveraliases.each do |name| -%>
+            ServerAlias <%= name %>
+        <% end -%>
+    <% elsif serveraliases != '' -%>
+        ServerAlias <%= serveraliases %>
+    <% end -%>
+    <% if sslengine == 'on' -%>
+        SSLEngine on
+        SSLCertificateFile <%= sslcertificatefile %>
+    <% end -%>
+    SetEnv APPLICATION_ENV development
+    DocumentRoot <%= docroot %>
+    <Directory <%= docroot %>>
+        Options <%= options %>
+        AllowOverride All
+        Order allow,deny
+        allow from all
+    </Directory>
+    ErrorLog <%= logdir %>/<%= name %>_error.log
+    LogLevel warn
+    CustomLog <%= logdir %>/<%= name %>_access.log combined
+    ServerSignature Off
+</VirtualHost>
+
