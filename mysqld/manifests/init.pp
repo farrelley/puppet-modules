@@ -4,7 +4,6 @@ class mysqld {
       "mysql",
       "mysql-server",
       "perl-DBD-MySQL",
-      "php-mysql",
     ]: ensure => installed,
   }
 
