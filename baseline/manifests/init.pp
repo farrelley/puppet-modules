@@ -20,9 +20,12 @@ class baseline {
       "tree",
       "screen", 
       "git",
+      "gcc",
+      "make",
+      "libssh2",
     ]: ensure => installed,
   }
-  
+    
   service {
    "crond": 
      enable => true, 
