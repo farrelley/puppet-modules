@@ -1,12 +1,11 @@
 class baseline {  
-  exec { 
-    'yum update': command => '/usr/bin/yum update -y'
+  exec { 'yum_update': 
+    command => '/usr/bin/yum update -y'
   }
   
-  exec { 
-    "set timezone":
-      command => "/bin/ln -sf /usr/share/zoneinfo/America/New_York /etc/localtime",
-      refreshonly => true
+  exec { "set timezone":
+    command => "/bin/ln -sf /usr/share/zoneinfo/America/New_York /etc/localtime",
+    refreshonly => true
   }
 
   Service {
