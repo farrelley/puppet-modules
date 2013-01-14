@@ -35,7 +35,11 @@ class php {
   }
   
   # PHP Mcrypt installed from EPEL (Fedora Repo)
-  package { "php-mcrypt":
+  package { 
+   [
+      "php-mcrypt",
+      "php-domxml-php4-php5",
+    ]:
     ensure => installed, 
     require => Yumrepo["epel"]
   }
