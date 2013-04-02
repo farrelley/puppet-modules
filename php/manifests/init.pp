@@ -22,7 +22,6 @@ class php {
   package {
     [
       "php", 
-      "php-pear",
       "php-devel",
       "php-pdo",
       "php-mysql",
@@ -33,15 +32,21 @@ class php {
     ]: ensure => installed, 
     require => Yumrepo["remi-repo"]
   }
-  
+
   # PHP Mcrypt installed from EPEL (Fedora Repo)
   package { 
    [
       "php-mcrypt",
-      "php-domxml-php4-php5",
+      "php-domxml-php4-php5"
     ]:
     ensure => installed, 
     require => Yumrepo["epel"]
+  }
+
+  package { 
+    [
+      "php-pear"
+    ]: ensure => installed
   }
 
 }
