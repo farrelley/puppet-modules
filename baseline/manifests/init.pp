@@ -19,6 +19,7 @@ class baseline {
       "tree",
       "screen", 
       "git",
+      "subversion",
       "gcc",
       "make",
       "libssh2",
