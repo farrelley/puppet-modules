@@ -3,7 +3,7 @@
 # https://github.com/Aethylred/puppet-elasticsearch
 
 class elasticsearch(
-  $version      = "0.19.11",
+  $version      = "0.20.6",
   $install_root = "/opt"
 ){
   
@@ -33,7 +33,7 @@ class elasticsearch(
 }
 
 class elasticsearch::install(
-  $version      = "0.19",
+  $version      = "0.20.6",
   $install_root = "/opt",
 ){
   # NOTE: This is not a good way to install something.
@@ -46,7 +46,7 @@ class elasticsearch::install(
     require => File["${$install_root}/elasticsearch"],
     path    => "/bin:/usr/bin:/usr/local/bin",
     cwd     => "${install_root}/elasticsearch",
-    command => "wget https://github.com/downloads/elasticsearch/elasticsearch/elasticsearch-${version}.tar.gz",
+    command => "wget https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-${version}.tar.gz",
     creates => "${install_root}/elasticsearch/elasticsearch-${version}.tar.gz",
   }
 
